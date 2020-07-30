@@ -15,8 +15,6 @@ import java.util.List;
 public class ChildController {
 
     @Autowired
-    JsonDataStructureService jsonDataStructureService;
-    @Autowired
     ChildService childService;
 
     @GetMapping("/childAlert")
