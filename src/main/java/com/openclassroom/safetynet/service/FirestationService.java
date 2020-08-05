@@ -1,6 +1,6 @@
 package com.openclassroom.safetynet.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.openclassroom.safetynet.model.Firestation;
 import com.openclassroom.safetynet.model.Medicalrecord;
 import com.openclassroom.safetynet.model.Person;
@@ -8,8 +8,6 @@ import com.openclassroom.safetynet.model.ResponsePersonWithStatistic;
 import com.openclassroom.safetynet.utils.JsonDataStructure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 import java.io.IOException;

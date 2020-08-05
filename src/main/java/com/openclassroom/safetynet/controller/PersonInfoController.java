@@ -1,8 +1,7 @@
 package com.openclassroom.safetynet.controller;
 
-import com.openclassroom.safetynet.model.Fire;
+
 import com.openclassroom.safetynet.model.PersonInfo;
-import com.openclassroom.safetynet.service.FirestationService;
 import com.openclassroom.safetynet.service.PersonInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

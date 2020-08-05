@@ -55,28 +55,39 @@ public class ReadJSon {
 //
 //        }
         //restcontroller5
-        List<Medicalrecord> medicalrecords = new ArrayList<>();
-        for (Medicalrecord m : jsonDataStructure.getMedicalrecords()) {
-            for (Person person : jsonDataStructure.getPersons()) {
-                if (person.getFirstName().equals(m.getFirstName()) && person.getLastName().equals(m.getLastName())
-                        && (person.getFirstName()).equals("John") &&(person.getLastName().equals("Boyd"))) {
+//        List<Medicalrecord> medicalrecords = new ArrayList<>();
+//        for (Medicalrecord m : jsonDataStructure.getMedicalrecords()) {
+//            for (Person person : jsonDataStructure.getPersons()) {
+//                if (person.getFirstName().equals(m.getFirstName()) && person.getLastName().equals(m.getLastName())
+//                        && (person.getFirstName()).equals("John") &&(person.getLastName().equals("Boyd"))) {
+//
+//                    String date = m.getBirthdate();
+//
+//                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+//                    LocalDate dateTime = LocalDate.parse(date, formatter);
+//
+//
+//                    YEARS.between(dateTime, LocalDate.now());
+//                    int age = (int) YEARS.between(dateTime, LocalDate.now());
+//                    m.getMedications();
+//                    m.getAllergies();
+//
+//                    PersonInfo personInfo = new PersonInfo(person.getFirstName(), person.getLastName(), person.getAddress()
+//                    , age, person.getEmail(), m.getMedications(), m.getAllergies());
+//                    System.out.println(personInfo);
+//                }
+//
+//            }
+//
+//        }
+        //restcontroller7
 
-                    String date = m.getBirthdate();
-
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-                    LocalDate dateTime = LocalDate.parse(date, formatter);
 
 
-                    YEARS.between(dateTime, LocalDate.now());
-                    int age = (int) YEARS.between(dateTime, LocalDate.now());
-                    m.getMedications();
-                    m.getAllergies();
-
-                    PersonInfo personInfo = new PersonInfo(person.getFirstName(), person.getLastName(), person.getAddress()
-                    , age, person.getEmail(), m.getMedications(), m.getAllergies());
-                    System.out.println(personInfo);
-                }
-
+        for (Person person : jsonDataStructure.getPersons()) {
+            if (person.getCity().equals("Culver")) {
+                person.getEmail();
+                System.out.println(person.getEmail());
             }
 
         }
