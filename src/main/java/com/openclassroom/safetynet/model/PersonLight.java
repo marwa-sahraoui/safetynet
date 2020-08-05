@@ -3,16 +3,13 @@ package com.openclassroom.safetynet.model;
 public class PersonLight {
     private String firstName;
     private String lastName;
-    private String address;
-    private String city;
-    private String zip;
+    private String phone;
 
-    public PersonLight(String firstName, String lastName, String address, String city, String zip) {
+
+    public PersonLight(String firstName, String lastName, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
-        this.city = city;
-        this.zip = zip;
+        this.phone = phone;
     }
 
     public String getFirstName() {
@@ -31,27 +28,21 @@ public class PersonLight {
         this.lastName = lastName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getCity() {
-        return city;
-    }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getZip() {
-        return zip;
-    }
-
-    public void setZip(String zip) {
-        this.zip = zip;
+    @Override
+    public String toString() {
+        return "PersonLight{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }

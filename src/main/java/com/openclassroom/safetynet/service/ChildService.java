@@ -38,7 +38,7 @@ public class ChildService {
 
         for (Medicalrecord x : jsonDataStructure.getMedicalrecords()) {
             for (Person p : personAdress) {
-                if (x.getFirstName().equals(p.getFirstName())) {
+                if (x.getFirstName().equals(p.getFirstName()) && x.getLastName().equals(p.getLastName())) {
 
                     String date = x.getBirthdate();
 
