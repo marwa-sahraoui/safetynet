@@ -22,7 +22,7 @@ public class ChildService {
     @Autowired
     private JsonDataStructureService jsonDataStructureService;
 
-    public List<Person> childrenPerAddress(@RequestParam("address") String address) throws IOException {
+    public List<Person> childrenPerAddress(String address) throws IOException {
 
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
 

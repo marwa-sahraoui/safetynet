@@ -41,32 +41,25 @@ public class ReadJSon {
         List<Firestation> firestations = new ArrayList<>();
         String x = new String();
 
-        for (Firestation f : jsonDataStructure.getFirestations()) {
-            for (Person p : jsonDataStructure.getPersons()) {
-
-                if (f.getAddress().equals("1509 Culver St") && (f.getAddress().equals(p.getAddress()))) {
-                   result.add(p);
-                 x= f.getStation();
-                 System.out.println(x);
-
-                }
-
-            }
-
-        }
-
-//            List<PersonLight> personLights = new ArrayList<>();
-//            for (Person person : result) {
-//                personLights.add(
+//        for (Firestation f : jsonDataStructure.getFirestations()) {
+//            for (Person p : jsonDataStructure.getPersons()) {
 //
-//                PersonLight(person.getFirstName(), person.getLastName(), person.getPhone()));
+//                if (f.getAddress().equals("1509 Culver St") && (f.getAddress().equals(p.getAddress()))) {
+//                   result.add(p);
+//                 x= f.getStation();
+//                // System.out.println(x);
+//
+//                }
 //
 //            }
-
+//
+//        }
+        //restcontroller5
         List<Medicalrecord> medicalrecords = new ArrayList<>();
         for (Medicalrecord m : jsonDataStructure.getMedicalrecords()) {
-            for (Person person : result) {
-                if (person.getFirstName().equals(m.getFirstName()) && person.getLastName().equals(m.getLastName())) {
+            for (Person person : jsonDataStructure.getPersons()) {
+                if (person.getFirstName().equals(m.getFirstName()) && person.getLastName().equals(m.getLastName())
+                        && (person.getFirstName()).equals("John") &&(person.getLastName().equals("Boyd"))) {
 
                     String date = m.getBirthdate();
 
@@ -76,17 +69,15 @@ public class ReadJSon {
 
                     YEARS.between(dateTime, LocalDate.now());
                     int age = (int) YEARS.between(dateTime, LocalDate.now());
+                    m.getMedications();
+                    m.getAllergies();
 
-                    PersonWithMedicalRecord personWithMedicalRecords = new PersonWithMedicalRecord(m.getFirstName(), person.getLastName(), person.getPhone(), age, m.getMedications(), m.getAllergies());
-                    System.out.println("dddddd" + personWithMedicalRecords);
-
-
+                    PersonInfo personInfo = new PersonInfo(person.getFirstName(), person.getLastName(), person.getAddress()
+                    , age, person.getEmail(), m.getMedications(), m.getAllergies());
+                    System.out.println(personInfo);
                 }
 
-
             }
-
-
 
         }
 

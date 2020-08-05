@@ -19,7 +19,7 @@ public class FireService {
     @Autowired
     private StationService stationService;
 
-    public Fire fire (@RequestParam("address") String address) throws IOException {
+    public Fire fire (String address) throws IOException {
 
         List<PersonWithMedicalRecord> total =  personMedRecordService.getpersonMedRecord(address);
 

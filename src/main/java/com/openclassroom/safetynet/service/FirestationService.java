@@ -29,7 +29,7 @@ public class FirestationService {
 
     private Logger logger = Logger.getLogger(FirestationService.class.getName());
 
-    public ResponsePersonWithStatistic getPersonsWithStatistics(@RequestParam("stationNumber") Integer stationNumber) throws IOException {
+    public ResponsePersonWithStatistic getPersonsWithStatistics(Integer stationNumber) throws IOException {
 
         ResponsePersonWithStatistic toReturn = new ResponsePersonWithStatistic();
 

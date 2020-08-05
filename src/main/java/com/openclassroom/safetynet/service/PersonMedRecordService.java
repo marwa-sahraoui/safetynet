@@ -21,7 +21,7 @@ public class PersonMedRecordService {
     @Autowired
     private JsonDataStructureService jsonDataStructureService;
 
-    public List<PersonWithMedicalRecord> getpersonMedRecord(@RequestParam("address") String address) {
+    public List<PersonWithMedicalRecord> getpersonMedRecord( String address) {
 
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
 
