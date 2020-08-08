@@ -1,4 +1,5 @@
-package com.openclassroom.safetynet.controller;
+package com.openclassroom.safetynet.
+        controller;
 
 
 import com.openclassroom.safetynet.model.Person;

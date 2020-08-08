@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.time.temporal.ChronoUnit.YEARS;
@@ -54,47 +55,82 @@ public class ReadJSon {
 //            }
 //
 //        }
-        //restcontroller5
-//        List<Medicalrecord> medicalrecords = new ArrayList<>();
-//        for (Medicalrecord m : jsonDataStructure.getMedicalrecords()) {
-//            for (Person person : jsonDataStructure.getPersons()) {
-//                if (person.getFirstName().equals(m.getFirstName()) && person.getLastName().equals(m.getLastName())
-//                        && (person.getFirstName()).equals("John") &&(person.getLastName().equals("Boyd"))) {
-//
-//                    String date = m.getBirthdate();
-//
-//                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-//                    LocalDate dateTime = LocalDate.parse(date, formatter);
-//
-//
-//                    YEARS.between(dateTime, LocalDate.now());
-//                    int age = (int) YEARS.between(dateTime, LocalDate.now());
-//                    m.getMedications();
-//                    m.getAllergies();
-//
-//                    PersonInfo personInfo = new PersonInfo(person.getFirstName(), person.getLastName(), person.getAddress()
-//                    , age, person.getEmail(), m.getMedications(), m.getAllergies());
-//                    System.out.println(personInfo);
-//                }
-//
-//            }
-//
-//        }
-        //restcontroller7
+        //restcontrollerxxxxxx
 
+        List<Firestation> stationsUtilisateur = new ArrayList<>();
 
+        List<Foyer> foyers = new ArrayList<>();
 
-        for (Person person : jsonDataStructure.getPersons()) {
-            if (person.getCity().equals("Culver")) {
-                person.getEmail();
-                System.out.println(person.getEmail());
+        List<String> stationsId = new ArrayList<>();
+        stationsId.add("2");
+
+        for (String id : stationsId) {
+            for (Firestation firestation : jsonDataStructure.getFirestations()) {
+                if (firestation.getStation().equals(id)) {
+                    stationsUtilisateur.add(firestation);
+                }
             }
 
+            for (Firestation firestation : stationsUtilisateur) {
+                for (Medicalrecord m : jsonDataStructure.getMedicalrecords()) {
+                    for (Person person : jsonDataStructure.getPersons()) {
+                        if (person.getFirstName().equals(m.getFirstName()) && person.getLastName().equals(m.getLastName())
+                                && (person.getAddress()).equals(firestation.getAddress())) {
+
+                            String date = m.getBirthdate();
+
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                            LocalDate dateTime = LocalDate.parse(date, formatter);
+
+
+                            YEARS.between(dateTime, LocalDate.now());
+                            int age = (int) YEARS.between(dateTime, LocalDate.now());
+                            m.getMedications();
+                            m.getAllergies();
+
+                            PersonWithMedicalRecord personWithMedicalRecord = new PersonWithMedicalRecord(person.getFirstName(),
+                                    person.getLastName(), person.getPhone(), age, m.getMedications(), m.getAllergies());
+                            //                      System.out.println(personWithMedicalRecord);
+
+                            //Foyer foyer = new Foyer(firestation.getStation(), firestation.getAddress(),new ArrayList<>());
+
+                            boolean dejaExiste;
+                            for (Foyer foyer : foyers) {
+                                if (person.getAddress().equals(foyer.getAddress())) {
+                                    foyer.getPersonWithMedicalRecords().add(personWithMedicalRecord);
+                                    dejaExiste = true;
+                                }
+                                if (dejaExiste = false) {
+                                    Foyer foyer1 = new Foyer(firestation.getStation(), firestation.getAddress(), new ArrayList<>());
+                                    foyer1.getPersonWithMedicalRecords().add(personWithMedicalRecord);
+                                    foyers.add(foyer1);
+
+                                }
+                                System.out.println(foyers);
+                            }
+
+                        }
+                    }
+                }
+            }
         }
-
     }
-
 }
+
+
+
+//
+//            for (Firestation f : jsonDataStructure.getFirestations()) {
+//                if (f.getStation().equals("3")) {
+//                Addresses.add(f.getAddress());
+//                }
+//            }
+//            System.out.println(Addresses);
+
+        //    }
+
+
+
 
 
 
