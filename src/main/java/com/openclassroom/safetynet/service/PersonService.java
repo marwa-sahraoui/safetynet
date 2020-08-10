@@ -14,18 +14,18 @@ public class PersonService {
     @Autowired
     private JsonDataStructureService jsonDataStructureService;
 
-    public void addPerson(Person person) {
-
-        JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
-        jsonDataStructure.getPersons().add(person);
-    }
-
 
     public List<Person> listPerson() {
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
         return jsonDataStructure.getPersons();
     }
 
+
+    public void addPerson(Person person) {
+
+        JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
+        jsonDataStructure.getPersons().add(person);
+    }
 
     public void updatePerson(Person person, String firstName, String lastName) {
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
