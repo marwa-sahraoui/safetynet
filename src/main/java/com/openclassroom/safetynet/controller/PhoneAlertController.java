@@ -16,7 +16,7 @@ public class PhoneAlertController {
     PhoneNumberService phoneNumberServic;
 
     @GetMapping("/phoneAlert")
-    public List<String> getPhoneNumber(@RequestParam("firestation") Integer firestation){
+    public List<String> getPhoneNumber(@RequestParam("firestation") Integer firestation) {
         return phoneNumberServic.getPhoneNumber(firestation);
     }
 

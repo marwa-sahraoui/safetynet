@@ -18,7 +18,7 @@ public class PhoneNumberService {
 
     private JsonDataStructureService jsonDataStructureService;
 
-    public List<String> getPhoneNumber( Integer firestation) {
+    public List<String> getPhoneNumber(Integer firestation) {
         List<Firestation> firestations = new ArrayList<>();
 
         List<String> phone = new ArrayList<>();

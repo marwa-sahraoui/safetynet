@@ -20,7 +20,7 @@ public class FireController {
     FireService fireService;
 
     @GetMapping("/fire")
-    public Fire fire(@RequestParam("address") String address) throws IOException{
+    public Fire fire(@RequestParam("address") String address) throws IOException {
         return fireService.fire(address);
     }
 }

@@ -118,7 +118,6 @@ public class ReadJSon {
 }
 
 
-
 //
 //            for (Firestation f : jsonDataStructure.getFirestations()) {
 //                if (f.getStation().equals("3")) {
@@ -127,7 +126,7 @@ public class ReadJSon {
 //            }
 //            System.out.println(Addresses);
 
-        //    }
+//    }
 
 
 

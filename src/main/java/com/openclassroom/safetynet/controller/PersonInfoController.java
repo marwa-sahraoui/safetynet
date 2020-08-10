@@ -19,6 +19,6 @@ public class PersonInfoController {
 
     @GetMapping("/personInfo")
     public PersonInfo personInfo(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName) throws IOException {
-        return personInfoService.personInfo(firstName,lastName);
-   }
+        return personInfoService.personInfo(firstName, lastName);
+    }
 }

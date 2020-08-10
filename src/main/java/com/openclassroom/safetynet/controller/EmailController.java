@@ -15,7 +15,7 @@ public class EmailController {
     EmailService emailService;
 
     @GetMapping("/communityEmail")
-    public List<String> getemails(@RequestParam("city") String city){
+    public List<String> getemails(@RequestParam("city") String city) {
         return emailService.emails(city);
     }
 }

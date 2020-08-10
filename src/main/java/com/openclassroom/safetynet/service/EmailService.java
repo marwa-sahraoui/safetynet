@@ -14,7 +14,7 @@ public class EmailService {
     @Autowired
     private JsonDataStructureService jsonDataStructureService;
 
-    public List<String> emails (String city) {
+    public List<String> emails(String city) {
 
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
 
@@ -27,6 +27,6 @@ public class EmailService {
             }
 
         }
-      return emails;
+        return emails;
     }
 }

@@ -19,7 +19,7 @@ public class ChildController {
 
     @GetMapping("/childAlert")
     public List<Person> children(@RequestParam("address") String address) throws IOException {
-        return childService.childrenPerAddress(address) ;
+        return childService.childrenPerAddress(address);
     }
 
 }

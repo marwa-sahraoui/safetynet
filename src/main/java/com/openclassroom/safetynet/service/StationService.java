@@ -77,14 +77,14 @@ public class StationService {
                                 person.getLastName(), person.getPhone(), age, m.getMedications(), m.getAllergies());
 
                         boolean dejaExistant = false;
-                        for(Foyer foyer: foyers){
-                            if(foyer.getAddress().equals(person.getAddress())){
+                        for (Foyer foyer : foyers) {
+                            if (foyer.getAddress().equals(person.getAddress())) {
                                 foyer.getPersonWithMedicalRecords().add(personWithMedicalRecord);
-                                dejaExistant =true;
+                                dejaExistant = true;
                             }
                         }
-                        if(dejaExistant != true){
-                            Foyer foyer = new Foyer(firestation.getStation(),firestation.getAddress(), new ArrayList<>());
+                        if (dejaExistant != true) {
+                            Foyer foyer = new Foyer(firestation.getStation(), firestation.getAddress(), new ArrayList<>());
                             foyer.getPersonWithMedicalRecords().add(personWithMedicalRecord);
                             foyers.add(foyer);
                         }

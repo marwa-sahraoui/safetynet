@@ -5,8 +5,8 @@ import java.util.List;
 public class Foyer {
 
     private String station;
-     private String address;
-     private List<PersonWithMedicalRecord> personWithMedicalRecords;
+    private String address;
+    private List<PersonWithMedicalRecord> personWithMedicalRecords;
 
     public String getStation() {
         return station;

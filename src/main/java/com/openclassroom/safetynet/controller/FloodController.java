@@ -18,8 +18,8 @@ public class FloodController {
     StationService stationService;
 
     @GetMapping("/flood/stations")
-        public List<Foyer> getfoyer(@RequestParam("stations") List<String> stations) {
-            return stationService.getfoyer(stations);
-        }
+    public List<Foyer> getfoyer(@RequestParam("stations") List<String> stations) {
+        return stationService.getfoyer(stations);
+    }
 
 }

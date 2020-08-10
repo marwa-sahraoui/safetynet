@@ -20,16 +20,16 @@ public class PersonMedRecordService {
     @Autowired
     private JsonDataStructureService jsonDataStructureService;
 
-    public List<PersonWithMedicalRecord> getpersonMedRecord( String address) {
+    public List<PersonWithMedicalRecord> getpersonMedRecord(String address) {
+
 
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
-
         List<Person> result = new ArrayList<>();
 
         for (Firestation f : jsonDataStructure.getFirestations()) {
             for (Person p : jsonDataStructure.getPersons()) {
 
-                if (f.getAddress().equals(address) && (f.getAddress().equals(p.getAddress()) )) {
+                if (f.getAddress().equals(address) && (f.getAddress().equals(p.getAddress()))) {
                     result.add(p);
 
                 }
@@ -40,7 +40,7 @@ public class PersonMedRecordService {
         List<PersonWithMedicalRecord> total = new ArrayList<>();
         for (Medicalrecord m : jsonDataStructure.getMedicalrecords()) {
             for (Person person : result) {
-                if (person.getFirstName().equals(m.getFirstName()) && person.getLastName().equals(m.getLastName()) ) {
+                if (person.getFirstName().equals(m.getFirstName()) && person.getLastName().equals(m.getLastName())) {
 
                     String date = m.getBirthdate();
 

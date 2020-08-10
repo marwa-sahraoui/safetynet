@@ -57,7 +57,7 @@ public class FirestationService {
         }
 
         return toReturn;
-        
+
     }
 
     private boolean isPersonAdult(JsonDataStructure jsonDataStructure, Person p) {
