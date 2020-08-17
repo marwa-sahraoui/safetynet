@@ -15,7 +15,6 @@ public class JsonDataStructureService {
 
     private final JsonDataStructure jsonDataStructure;
 
-    private Logger logger = Logger.getLogger(JsonDataStructureService.class.getName());
 
     public JsonDataStructureService() throws IOException {
         String fileName = "json/data.json";
@@ -24,7 +23,7 @@ public class JsonDataStructureService {
         File file = new File(classLoader.getResource(fileName).getFile());
 
         //File is found
-        logger.info("File Found : " + file.exists());
+       // logger.info("File Found : " + file.exists());
 
         // Read File Content
         String content = new String(Files.readAllBytes(file.toPath()));

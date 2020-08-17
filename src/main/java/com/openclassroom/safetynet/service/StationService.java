@@ -22,27 +22,26 @@ public class StationService {
     @Autowired
     private JsonDataStructureService jsonDataStructureService;
 
-
-    public String stats(@RequestParam("address") String address) {
+    public String getStationByAddress(String address) {
 
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
-        String x = new String();
+        String station = null;
 
         for (Firestation f : jsonDataStructure.getFirestations()) {
             for (Person p : jsonDataStructure.getPersons()) {
 
                 if (f.getAddress().equals(address) && (f.getAddress().equals(p.getAddress()))) {
-                    x = f.getStation(); // pour eviter d'avoir le nombre de station répetée je fais le break
+                    station = f.getStation(); // pour eviter d'avoir le nombre de station répetée je fais le break
                     break;
                 }
 
             }
 
         }
-        return x;
+        return station;
     }
 
-    public List<Foyer> getfoyer(List<String> stations) {
+    public List<Foyer> getFoyerListForStations(List<String> stations) {
 
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
 
@@ -70,8 +69,6 @@ public class StationService {
 
                         YEARS.between(dateTime, LocalDate.now());
                         int age = (int) YEARS.between(dateTime, LocalDate.now());
-                        m.getMedications();
-                        m.getAllergies();
 
                         PersonWithMedicalRecord personWithMedicalRecord = new PersonWithMedicalRecord(person.getFirstName(),
                                 person.getLastName(), person.getPhone(), age, m.getMedications(), m.getAllergies());

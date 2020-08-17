@@ -15,24 +15,23 @@ import java.util.List;
 public class PhoneNumberService {
 
     @Autowired
-
     private JsonDataStructureService jsonDataStructureService;
 
-    public List<String> getPhoneNumber(Integer firestation) {
+    public List<String> getPersonsPhoneNumberByFirestation(Integer station) {
         List<Firestation> firestations = new ArrayList<>();
 
         List<String> phone = new ArrayList<>();
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
 
         for (Firestation f : jsonDataStructure.getFirestations()) {
-            if (f.getStation().equals(String.valueOf(firestation))) {
+            if (f.getStation().equals(String.valueOf(station))) {
                 firestations.add(f);
             }
         }
 
-        for (Firestation firestationss : firestations) {
+        for (Firestation firestation : firestations) {
             for (Person p : jsonDataStructure.getPersons()) {
-                if (firestationss.getAddress().equals(p.getAddress())) {
+                if (firestation.getAddress().equals(p.getAddress())) {
                     phone.add(p.getPhone());
                 }
             }

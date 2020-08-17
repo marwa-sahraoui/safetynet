@@ -22,7 +22,6 @@ public class PersonMedRecordService {
 
     public List<PersonWithMedicalRecord> getpersonMedRecord(String address) {
 
-
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
         List<Person> result = new ArrayList<>();
 

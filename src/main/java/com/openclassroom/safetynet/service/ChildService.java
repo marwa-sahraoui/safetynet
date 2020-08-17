@@ -35,7 +35,6 @@ public class ChildService {
             }
         }
 
-
         for (Medicalrecord x : jsonDataStructure.getMedicalrecords()) {
             for (Person p : personAdress) {
                 if (x.getFirstName().equals(p.getFirstName()) && x.getLastName().equals(p.getLastName())) {
@@ -44,7 +43,6 @@ public class ChildService {
 
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
                     LocalDate dateTime = LocalDate.parse(date, formatter);
-
 
                     if ((YEARS.between(dateTime, LocalDate.now()) <= 18)) {
                         y.add(p);

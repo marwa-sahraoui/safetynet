@@ -11,6 +11,7 @@ import java.util.List;
 
 @Service
 public class EmailService {
+
     @Autowired
     private JsonDataStructureService jsonDataStructureService;
 
@@ -23,9 +24,7 @@ public class EmailService {
         for (Person p : jsonDataStructure.getPersons()) {
             if (p.getCity().equals(city)) {
                 emails.add(p.getEmail());
-
             }
-
         }
         return emails;
     }

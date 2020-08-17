@@ -16,11 +16,11 @@ import java.time.format.DateTimeFormatter;
 import static java.time.temporal.ChronoUnit.YEARS;
 
 @Service
-public class PersonInfoService {
+ public class PersonInfoService {
     @Autowired
     private JsonDataStructureService jsonDataStructureService;
-
-    public PersonInfo personInfo(String firstName, String lastName) {
+//javadoc + class de test
+    public PersonInfo createPersonInfo(String firstName, String lastName) {
 
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
 

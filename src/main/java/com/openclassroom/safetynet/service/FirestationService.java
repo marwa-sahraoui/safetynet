@@ -79,13 +79,13 @@ public class FirestationService {
     }
 
 
-    public List<Firestation> ListFirestations() {
+    public List<Firestation> listFirestations() {
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
         return jsonDataStructure.getFirestations();
     }
 
 
-    public void addFirestation(Firestation firestation, String address) {
+    public void addFirestation(Firestation firestation) {
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
         jsonDataStructure.getFirestations().add(firestation);
     }
@@ -93,17 +93,20 @@ public class FirestationService {
 
     public void updateFirestation(Firestation firestation, String address) {
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
-        for(int i=0; i< jsonDataStructure.getFirestations().size(); i++){
-           Firestation f = jsonDataStructure.getFirestations().get(i);
-            if(f.getAddress().equals(address)){
-                jsonDataStructure.getFirestations().set(i,firestation);
+        for (int i = 0; i < jsonDataStructure.getFirestations().size(); i++) {
+            Firestation f = jsonDataStructure.getFirestations().get(i);
+            if (f.getAddress().equals(address)) {
+                if (firestation.getAddress() == null) {
+                    firestation.setAddress(address);
+                }
+                jsonDataStructure.getFirestations().set(i, firestation);
                 return;
             }
         }
     }
 
-    public void deleteFirestation(Firestation firestation, String address) {
+    public void deleteFirestation(String address) {
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
-        jsonDataStructure.getFirestations().removeIf(f->f.getAddress().equals(address));
+        jsonDataStructure.getFirestations().removeIf(f -> f.getAddress().equals(address));
     }
 }

@@ -44,4 +44,13 @@ public class ResponsePersonWithStatistic {
     public void setNumberChild(int numberChild) {
         this.numberChild = numberChild;
     }
+
+    @Override
+    public String toString() {
+        return "ResponsePersonWithStatistic{" +
+                "person=" + person +
+                ", numberChild=" + numberChild +
+                ", numberAdult=" + numberAdult +
+                '}';
+    }
 }

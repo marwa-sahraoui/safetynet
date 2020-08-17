@@ -29,6 +29,11 @@ public class MedicalRecordService {
         for(int i=0; i< jsonDataStructure.getMedicalrecords().size(); i++){
             Medicalrecord m = jsonDataStructure.getMedicalrecords().get(i);
             if(m.getFirstName().equals(firstName)&&(m.getLastName().equals(lastName))){
+                if (medicalrecord.getFirstName() == null) {
+                    medicalrecord.setFirstName(firstName);
+                } if (medicalrecord.getLastName() == null) {
+                    medicalrecord.setLastName(lastName);
+                }
                 jsonDataStructure.getMedicalrecords().set(i,medicalrecord);
                 return;
             }
@@ -36,7 +41,7 @@ public class MedicalRecordService {
     }
 
 
-    public void deleteMedicalRecord(Medicalrecord medicalrecord, String firstName, String lastName) {
+    public void deleteMedicalRecord(String firstName, String lastName) {
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
         jsonDataStructure.getMedicalrecords().removeIf(m->m.getFirstName().equals(firstName) && m.getLastName().equals(lastName));
     }

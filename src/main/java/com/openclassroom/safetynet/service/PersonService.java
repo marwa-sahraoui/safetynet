@@ -32,6 +32,11 @@ public class PersonService {
         for(int i=0; i< jsonDataStructure.getPersons().size(); i++){
             Person p = jsonDataStructure.getPersons().get(i);
             if(p.getFirstName().equals(firstName)&&(p.getLastName().equals(lastName))){
+                if (person.getFirstName() == null) {
+                    person.setFirstName(firstName);
+                } if (person.getLastName() == null) {
+                    person.setLastName(lastName);
+                }
                 jsonDataStructure.getPersons().set(i,person);
                 return;
             }
@@ -39,7 +44,7 @@ public class PersonService {
     }
 
 
-    public void deletePerson(Person person, String firstName, String lastName) {
+    public void deletePerson(String firstName, String lastName) {
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
         jsonDataStructure.getPersons().removeIf(p->p.getFirstName().equals(firstName) && p.getLastName().equals(lastName));
     }
