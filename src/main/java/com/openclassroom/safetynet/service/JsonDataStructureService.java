@@ -2,13 +2,11 @@ package com.openclassroom.safetynet.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.openclassroom.safetynet.utils.JsonDataStructure;
-import com.openclassroom.safetynet.utils.ReadJSon;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.logging.Logger;
 
 @Service
 public class JsonDataStructureService {
@@ -19,7 +17,7 @@ public class JsonDataStructureService {
     public JsonDataStructureService() throws IOException {
         String fileName = "json/data.json";
 
-        ClassLoader classLoader = new ReadJSon().getClass().getClassLoader();
+        ClassLoader classLoader = this.getClass().getClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());
 
         //File is found

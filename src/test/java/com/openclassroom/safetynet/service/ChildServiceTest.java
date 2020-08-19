@@ -1,5 +1,6 @@
 package com.openclassroom.safetynet.service;
 
+import com.openclassroom.safetynet.model.ChildInfo;
 import com.openclassroom.safetynet.model.Person;
 import com.openclassroom.safetynet.utils.JsonDataStructure;
 import org.junit.jupiter.api.BeforeAll;
@@ -38,7 +39,7 @@ class ChildServiceTest {
     void childrenPerAddressTestChildIn10RueLiberté() throws IOException {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
 
-        List<Person> children = childService.childrenPerAddress("10 rue liberté");
+        List<ChildInfo> children = childService.childrenPerAddress("10 rue liberté");
 
         assertEquals(1,children.size());
         assertThat(children.get(0).getFirstName()).isEqualTo("Chris");
@@ -48,26 +49,26 @@ class ChildServiceTest {
     void childrenPerAddressTest14RueHoch() throws IOException {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
 
-        List<Person> children = childService.childrenPerAddress("14 rue Hoch");
+        List<ChildInfo> children = childService.childrenPerAddress("14 rue Hoch");
 
-        assertThat(children.size()).isEqualTo(1);
+        assertEquals(1,children.size());
     }
     @Test
     void childrenPerAddressTest01RueVAlbertAnchtein() throws IOException {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
 
-        List<Person> children = childService.childrenPerAddress("01RueVAlbertAnchtein");
+        List<ChildInfo> children = childService.childrenPerAddress("01RueVAlbertAnchtein");
 
-        assertThat(children.size()).isEqualTo(0);
+        assertEquals(0,children.size());
 
     }
     @Test
     void childrenPerAddressTest50RueRivoli() throws IOException {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
 
-        List<Person> children = childService.childrenPerAddress("50 rue Rivoli");
+        List<ChildInfo> children = childService.childrenPerAddress("50 rue Rivoli");
 
-        assertThat(children.size()).isEqualTo(0);
+        assertEquals(0,children.size());
 
     }
 }

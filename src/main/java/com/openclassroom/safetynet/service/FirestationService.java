@@ -1,10 +1,7 @@
 package com.openclassroom.safetynet.service;
 
 
-import com.openclassroom.safetynet.model.Firestation;
-import com.openclassroom.safetynet.model.Medicalrecord;
-import com.openclassroom.safetynet.model.Person;
-import com.openclassroom.safetynet.model.ResponsePersonWithStatistic;
+import com.openclassroom.safetynet.model.*;
 import com.openclassroom.safetynet.utils.JsonDataStructure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,17 +32,22 @@ public class FirestationService {
 
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
 
+       // on va regroupé les firestations ayant le même nombre de station
         for (Firestation f : jsonDataStructure.getFirestations()) {
             if (f.getStation().equals(String.valueOf(stationNumber))) {
                 firestations.add(f);
             }
         }
 
-        for (
-                Firestation firestation : firestations) {
+        //on va collecter les personnes ayant les mêmes adresses que celle présente dans les firestations
+        //on va extraire les noms/prénoms/adresses/téléphones de ces personnes
+        for (Firestation firestation : firestations) {
             for (Person p : jsonDataStructure.getPersons()) {
                 if (firestation.getAddress().equals(p.getAddress())) {
-                    toReturn.getPerson().add(p);
+
+                   Person personWithAddressAndPhone = new Person(p.getFirstName(),p.getLastName(),
+                           p.getAddress(),p.getPhone());
+                    toReturn.getPerson().add(personWithAddressAndPhone);
                     if (isPersonAdult(jsonDataStructure, p)) {
                         toReturn.setNumberAdult(toReturn.getNumberAdult() + 1);
                     } else {
@@ -60,6 +62,12 @@ public class FirestationService {
 
     }
 
+    /**
+     *
+     * @param jsonDataStructure
+     * @param p
+     * @return true si la personne est adule >18ans
+     */
     private boolean isPersonAdult(JsonDataStructure jsonDataStructure, Person p) {
         for (Medicalrecord x : jsonDataStructure.getMedicalrecords()) {
             if (x.getFirstName().equals(p.getFirstName()) && x.getLastName().equals(p.getLastName())) {

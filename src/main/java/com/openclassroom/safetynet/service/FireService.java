@@ -12,7 +12,6 @@ import java.util.List;
 public class FireService {
 
     private PersonMedRecordService personMedRecordService;
-
     private StationService stationService;
 
     @Autowired
@@ -20,6 +19,7 @@ public class FireService {
         this.personMedRecordService = personMedRecordService;
         this.stationService = stationService;
     }
+
 
     public Fire createFire(String address) {
 

@@ -15,6 +15,11 @@ public class EmailService {
     @Autowired
     private JsonDataStructureService jsonDataStructureService;
 
+    /**
+     *
+     * @param city
+     * @return liste des emails des personnes habitants à une ville donnée
+     */
     public List<String> emails(String city) {
 
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();

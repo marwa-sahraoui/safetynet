@@ -12,7 +12,7 @@ import java.util.List;
 public class JsonDataStructureExp {
 
     static JsonDataStructure getJsonData() {
-
+//construction de 6 personnes
         Person p1 = new Person();
         p1.setFirstName("Carla");
         p1.setLastName("Beans");

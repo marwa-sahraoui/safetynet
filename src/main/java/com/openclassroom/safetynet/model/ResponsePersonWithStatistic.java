@@ -1,8 +1,12 @@
 package com.openclassroom.safetynet.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponsePersonWithStatistic {
     private List<Person> person;
     private int numberChild;
@@ -45,12 +49,4 @@ public class ResponsePersonWithStatistic {
         this.numberChild = numberChild;
     }
 
-    @Override
-    public String toString() {
-        return "ResponsePersonWithStatistic{" +
-                "person=" + person +
-                ", numberChild=" + numberChild +
-                ", numberAdult=" + numberAdult +
-                '}';
-    }
 }

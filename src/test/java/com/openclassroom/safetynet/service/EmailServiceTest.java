@@ -27,7 +27,7 @@ class EmailServiceTest {
     static JsonDataStructure jsonDataStructureExp;
 
     @BeforeEach
-    static void init() {
+    void init() {
         jsonDataStructureExp = JsonDataStructureExp.getJsonData();
 
     }

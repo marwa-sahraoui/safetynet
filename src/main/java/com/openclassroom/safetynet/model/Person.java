@@ -1,8 +1,14 @@
 package com.openclassroom.safetynet.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Person {
+
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     private String firstName;
     private String lastName;
@@ -11,6 +17,17 @@ public class Person {
     private String zip;
     private String phone;
     private String email;
+
+    public Person() {
+    }
+
+
+    public Person(String firstName, String lastName, String address, String phone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.phone = phone;
+    }
 
     public String getFirstName() {
         return firstName;

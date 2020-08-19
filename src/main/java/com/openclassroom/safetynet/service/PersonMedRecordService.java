@@ -49,8 +49,8 @@ public class PersonMedRecordService {
                     YEARS.between(dateTime, LocalDate.now());
                     int age = (int) YEARS.between(dateTime, LocalDate.now());
 
-                    PersonWithMedicalRecord personWithMedicalRecords = new PersonWithMedicalRecord(m.getFirstName(), person.getLastName(), person.getPhone(), age, m.getMedications(), m.getAllergies());
-                    System.out.println(personWithMedicalRecords);
+                    PersonWithMedicalRecord personWithMedicalRecords = new PersonWithMedicalRecord(m.getFirstName(), person.getLastName(),
+                            person.getPhone(), age, m.getMedications(), m.getAllergies());
 
                     total.add(personWithMedicalRecords);
                     break;

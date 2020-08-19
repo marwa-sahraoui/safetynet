@@ -19,13 +19,12 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-
 class PersonServiceTest {
     @Mock
     JsonDataStructureService jsonDataStructureService;
 
     @InjectMocks
-    PersonService  personService;
+    PersonService personService;
     static JsonDataStructure jsonDataStructureExp;
 
     @BeforeEach
@@ -35,8 +34,8 @@ class PersonServiceTest {
 
     @Test
     void listPerson() {
-     when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
-        assertEquals(6,personService.listPerson().size());
+        when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
+        assertEquals(6, personService.listPerson().size());
     }
 
     @Test
@@ -59,12 +58,12 @@ class PersonServiceTest {
     void updatePersonModifiyingHerEmail() {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
 
-        Person updatePerson  = new Person();
+        Person updatePerson = new Person();
         updatePerson.setEmail("CaBeans@gmail.com");
 
-        personService.updatePerson(updatePerson,"Carla","Beans");
-        assertEquals( "CaBeans@gmail.com",jsonDataStructureService.getJsonDataStructure().getPersons().get(0).getEmail());
-        assertEquals( "Carla",jsonDataStructureService.getJsonDataStructure().getPersons().get(0).getFirstName());
+        personService.updatePerson(updatePerson, "Carla", "Beans");
+        assertEquals("CaBeans@gmail.com", jsonDataStructureService.getJsonDataStructure().getPersons().get(0).getEmail());
+        assertEquals("Carla", jsonDataStructureService.getJsonDataStructure().getPersons().get(0).getFirstName());
         assertNotEquals("Carla@gmail.com", jsonDataStructureService.getJsonDataStructure().getMedicalrecords().get(0).getBirthdate());
 
     }
@@ -77,17 +76,17 @@ class PersonServiceTest {
                 jsonDataStructureService.getJsonDataStructure()
                         .getMedicalrecords()
                         .stream()
-                        .filter(person-> person.getFirstName().equals("Chris")
+                        .filter(person -> person.getFirstName().equals("Chris")
                                 && person.getLastName().equals("Martin"))
                         .count()
         );
-        personService.deletePerson("Chris","Martin");
+        personService.deletePerson("Chris", "Martin");
 
         assertEquals(0,
                 jsonDataStructureService.getJsonDataStructure()
                         .getPersons()
                         .stream()
-                        .filter(person-> person.getFirstName().equals("Chris")
+                        .filter(person -> person.getFirstName().equals("Chris")
                                 && person.equals("Martin"))
                         .count()
         );
