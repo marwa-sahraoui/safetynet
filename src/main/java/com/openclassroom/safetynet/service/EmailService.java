@@ -14,7 +14,6 @@ public class EmailService {
 
     @Autowired
     private JsonDataStructureService jsonDataStructureService;
-
     /**
      *
      * @param city

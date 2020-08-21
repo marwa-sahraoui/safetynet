@@ -2,6 +2,8 @@ package com.openclassroom.safetynet.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.Objects;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Person {
 
@@ -21,7 +23,7 @@ public class Person {
     public Person() {
     }
 
-
+//Ce constructeur sera utilisé dans la classe firestation service
     public Person(String firstName, String lastName, String address, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -83,6 +85,20 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(firstName, person.firstName) &&
+                Objects.equals(lastName, person.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName);
     }
 
     @Override

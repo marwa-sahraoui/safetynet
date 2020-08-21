@@ -34,6 +34,7 @@ class StationServiceTest {
     }
 
     @Test
+    //tester les sations en fonctions de l'adresse donnée
     void getStationByAddressTestStationIn10RueLibertéIs2 () {
             when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
             String station = stationService.getStationByAddress("10 rue liberté");
@@ -42,6 +43,8 @@ class StationServiceTest {
     }
 
     @Test
+    //Si je donne une listes de 2 stations 1 et 2 j'attends avoir 3 foyers dont l'adresse du 1 er foyer:14 rue Hoch
+    //et du 3 eme foyer est 10 rue liberté
     void getFoyerListForStationsInList1And2WhichHave3Foyers() {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
         List<Foyer> foyers = stationService.getFoyerListForStations(Arrays.asList("1", "2"));

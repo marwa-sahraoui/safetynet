@@ -49,6 +49,7 @@ class PersonServiceTest {
         person.setEmail("Jaames@gmail.com");
         person.setPhone("454554");
         personService.addPerson(person);
+        //si on ajoute une personne à la liste donc la taille de liste devient 7, son prénom James et pas Zack
         assertEquals(7, jsonDataStructureService.getJsonDataStructure().getPersons().size());
         assertEquals("James", jsonDataStructureService.getJsonDataStructure().getPersons().get(6).getFirstName());
         assertNotEquals("Zack", jsonDataStructureService.getJsonDataStructure().getPersons().get(6).getFirstName());
@@ -60,6 +61,8 @@ class PersonServiceTest {
 
         Person updatePerson = new Person();
         updatePerson.setEmail("CaBeans@gmail.com");
+      //on modifie pour la personne Carla l'adresse mail qui devient ;CaBeans@gmail.com et on teste
+        // que l'ancienne adresse n'est plus valable
 
         personService.updatePerson(updatePerson, "Carla", "Beans");
         assertEquals("CaBeans@gmail.com", jsonDataStructureService.getJsonDataStructure().getPersons().get(0).getEmail());
@@ -71,7 +74,8 @@ class PersonServiceTest {
     @Test
     void deletePersonNamedChrisMartin() {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
-
+      //On compte le nombre de personnes ayant le nom Chris Martin (1),
+      //on appelle la méthode de delete de cette personne puis on refait le compte et on vérifie qu'elle devient 0
         assertEquals(1,
                 jsonDataStructureService.getJsonDataStructure()
                         .getMedicalrecords()

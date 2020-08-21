@@ -19,7 +19,12 @@ import static java.time.temporal.ChronoUnit.YEARS;
  public class PersonInfoService {
     @Autowired
     private JsonDataStructureService jsonDataStructureService;
-//javadoc + class de test
+    /**
+     *
+     * @param firstName
+     * @param lastName
+     * @return personInfo Nom/prenom/age/adresse/ medications/allergies  à partir du nom et prénom donné
+     */
     public PersonInfo createPersonInfo(String firstName, String lastName) {
 
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
@@ -34,15 +39,13 @@ import static java.time.temporal.ChronoUnit.YEARS;
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
                     LocalDate dateTime = LocalDate.parse(date, formatter);
 
-
                     YEARS.between(dateTime, LocalDate.now());
+                    //méthode pour récupérer l'age à partir de la date de birthday
                     int age = (int) YEARS.between(dateTime, LocalDate.now());
-                    m.getMedications();
-                    m.getAllergies();
 
                     PersonInfo personInfo = new PersonInfo(person.getFirstName(), person.getLastName(), person.getAddress()
                             , age, person.getEmail(), m.getMedications(), m.getAllergies());
-                    System.out.println(personInfo);
+
                     return personInfo;
                 }
 

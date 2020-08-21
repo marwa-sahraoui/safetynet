@@ -34,6 +34,8 @@ class EmailServiceTest {
     @Test
     void emailsTestThatNumberOfMailInLilleIs6() {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn( jsonDataStructureExp);
+        //méthode emails permet de récupérer la liste des emails pour une ville donnée exp : Lille
+        //si je donne un emails qui n'existe pas c'est un assert False
         List<String> emailsExp = emailService.emails("Lille");
         assertEquals(6,emailsExp.size());
         assertTrue(emailsExp.get(0) == "Carla@gmail.com" );
@@ -41,6 +43,7 @@ class EmailServiceTest {
     }
     @Test
     void emailsTestThatNumberOfMailInNice() {
+        //si je teste emails pour une ville non donnée exp Nice cela retourne 0
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn( jsonDataStructureExp);
         List<String> emailsExp = emailService.emails("Nice");
         assertEquals(0,emailsExp.size());

@@ -28,7 +28,10 @@ public class MedicalRecordService {
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
         for(int i=0; i< jsonDataStructure.getMedicalrecords().size(); i++){
             Medicalrecord m = jsonDataStructure.getMedicalrecords().get(i);
+            //pour un medicalRecord donné ayant le même nom et prénom que celui donné par l'utilisateur,
+            // on remplace le nouvel medicalRecord que celui ayant ces données
             if(m.getFirstName().equals(firstName)&&(m.getLastName().equals(lastName))){
+
                 if (medicalrecord.getFirstName() == null) {
                     medicalrecord.setFirstName(firstName);
                 } if (medicalrecord.getLastName() == null) {

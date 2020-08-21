@@ -31,9 +31,10 @@ class JsonDataStructureServiceTest {
     @Test
     void testPersonNameFromJsonDataStructurePersonsList() {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
-
+        //je teste le nombre total de firestation que j'ai 4, ainsi que celui des personnes 6
         assertEquals(4,jsonDataStructureService.getJsonDataStructure().getFirestations().size());
         assertEquals(6,jsonDataStructureService.getJsonDataStructure().getPersons().size());
+        //pour une personne qui s'appelle Carla on doit avoir l'addresse :14 rue Hoc
         for(Person x : jsonDataStructureExp.getPersons()) {
            if(x.getFirstName().equals("Carla")){
                x.getAddress().equals("14 rue Hoch");

@@ -2,11 +2,12 @@ package com.openclassroom.safetynet.model;
 
 import java.util.List;
 
-public class Fire {
+public class PersonMedRecordAndStationNumber {
+
     private List<PersonWithMedicalRecord> personWithMedicalRecord;
     private String station;
 
-    public Fire(List<PersonWithMedicalRecord> personWithMedicalRecord, String station) {
+    public PersonMedRecordAndStationNumber(List<PersonWithMedicalRecord> personWithMedicalRecord, String station) {
         this.personWithMedicalRecord = personWithMedicalRecord;
         this.station = station;
     }
@@ -29,7 +30,7 @@ public class Fire {
 
     @Override
     public String toString() {
-        return "Fire{" +
+        return "PersonMedRecordAndStationNumber {" +
                 "personWithMedicalRecord=" + personWithMedicalRecord +
                 ", station='" + station + '\'' +
                 '}';

@@ -51,7 +51,7 @@ class MedicalRecordServiceTest {
         medicalrecord.setBirthdate("06/02/2006");
         medicalrecord.setMedications(Arrays.asList(new String[]{}));
         medicalrecord.setAllergies(Arrays.asList(new String[]{}));
-
+         //j'ajoute un medical record don la taille de la liste augmente de 6 à 7 ayant comme prénom Lina et pas Cross
         assertEquals(6, jsonDataStructureService.getJsonDataStructure().getMedicalrecords().size());
         medicalRecordService.addMedicalRecord(medicalrecord);
         assertEquals(7, jsonDataStructureService.getJsonDataStructure().getMedicalrecords().size());
@@ -65,7 +65,7 @@ class MedicalRecordServiceTest {
 
         Medicalrecord UpdateMedicRecord  = new Medicalrecord();
         UpdateMedicRecord.setBirthdate("04/04/2019");
-
+       //pour la personne Carla Beans on modifie la date de naissance et on modifie que l'ancienne date est fausse
         medicalRecordService.updateMedicalRecord(UpdateMedicRecord,"Carla","Beans");
         assertEquals( "04/04/2019",jsonDataStructureService.getJsonDataStructure().getMedicalrecords().get(0).getBirthdate());
         assertEquals( "Carla",jsonDataStructureService.getJsonDataStructure().getMedicalrecords().get(0).getFirstName());
@@ -78,7 +78,7 @@ class MedicalRecordServiceTest {
     @Test
     void deleteMedicalRecord() {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
-
+        // on compte le nombre de personne au nom Cris Martin avant et apres le delete (1 puis devient 0)
         assertEquals(1,
                 jsonDataStructureService.getJsonDataStructure()
                         .getPersons()

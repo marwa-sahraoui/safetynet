@@ -40,7 +40,8 @@ class PersonMedRecordServiceTest {
     @Test
     void getpersonMedRecordTestPersonsIn14Ruehoch() {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
-
+      //On verifie pour la liste de personnes qui habitent à l'adresse 14 rue Hoch; le prénom de la 2em personne  est Rose,
+        //son age est 3ans, prénom de la premier personne Carla et son age est 31
         assertEquals(2,personMedRecordService.getpersonMedRecord("14 rue Hoch").size());
         List<PersonWithMedicalRecord> personWithMedicalRecord = personMedRecordService.getpersonMedRecord("14 rue Hoch");
         assertEquals("Rose",personWithMedicalRecord.get(1).getFirstName() );
@@ -53,7 +54,8 @@ class PersonMedRecordServiceTest {
     @Test
     void getpersonMedRecordTestPersonIn50RueRivoli() {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
-
+       ///On verifie pour la liste de personnes qui habitent à l'adresse 50 rue Rivoli;  qui s'appelle bob et pas Suzi
+        // et ayant une allergie au pollen
         assertEquals(personMedRecordService.getpersonMedRecord("50 rue Rivoli").size(), 1);
         List<PersonWithMedicalRecord> personWithMedicalRecord = personMedRecordService.getpersonMedRecord("50 rue Rivoli");
         assertFalse(personWithMedicalRecord.get(0).getFirstName().equals("Suzi"));

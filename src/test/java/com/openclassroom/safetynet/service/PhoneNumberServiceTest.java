@@ -32,6 +32,7 @@ class PhoneNumberServiceTest {
 
     }
     @Test
+    //pour la station 2 on obtient deux numéro du telephone dont le premier:"0202020"
     void getPhoneNumberTestFirestation2WichHad2Numbers() {
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
         List<String> phoneExp = phoneNumberService.getPersonsPhoneNumberByFirestation(2);

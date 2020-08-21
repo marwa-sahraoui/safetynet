@@ -3,6 +3,7 @@ package com.openclassroom.safetynet.
 
 
 import com.openclassroom.safetynet.model.ChildInfo;
+import com.openclassroom.safetynet.model.ChildInfoAndfamilyMembre;
 import com.openclassroom.safetynet.model.Person;
 import com.openclassroom.safetynet.service.ChildService;
 import org.slf4j.Logger;
@@ -22,11 +23,11 @@ public class ChildController {
     ChildService childService;
 
     @GetMapping("/childAlert")
-    public List<ChildInfo> children(@RequestParam("address") String address) throws IOException {
+    public ChildInfoAndfamilyMembre childrenAndFamily(@RequestParam("address") String address) throws IOException {
         logger.info("request list childen living in address: " + address);
-        List<ChildInfo> children = childService.childrenPerAddress(address);
-        logger.info("list childen living in address: " + address + ": " + children);
-        return children;
+        ChildInfoAndfamilyMembre childrenAndFamily = childService.getChildInfoAndfamilyMembre(address);
+        logger.info("list childen living in address: " + address + ": " + childrenAndFamily);
+        return childrenAndFamily;
     }
 
 }

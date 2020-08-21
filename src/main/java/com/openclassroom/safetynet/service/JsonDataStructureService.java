@@ -13,20 +13,15 @@ public class JsonDataStructureService {
 
     private final JsonDataStructure jsonDataStructure;
 
-
+    //déserialisation de fichier json data.json en un objet java JsonDataStructure
     public JsonDataStructureService() throws IOException {
         String fileName = "json/data.json";
 
         ClassLoader classLoader = this.getClass().getClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());
 
-        //File is found
-       // logger.info("File Found : " + file.exists());
-
-        // Read File Content
         String content = new String(Files.readAllBytes(file.toPath()));
 
-        //
         ObjectMapper mapper = new ObjectMapper();
         jsonDataStructure = mapper.readValue(content, JsonDataStructure.class);
     }

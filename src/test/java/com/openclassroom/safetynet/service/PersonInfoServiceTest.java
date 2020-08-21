@@ -40,6 +40,7 @@ JsonDataStructureService jsonDataStructureService;
     }
     @Test
     void personInfoTestBobMarly() {
+        //on teste si je donne le nom de Bob Marly, son age sera 61, et  présente d'allergie
         when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
         PersonInfo y = personInfoService.createPersonInfo("Bob","Marly");
         assertEquals("Bob@gmail.com",y.getEmail());
@@ -47,5 +48,13 @@ JsonDataStructureService jsonDataStructureService;
         assertEquals(61, y.getAge());
 
     }
+    @Test
+    void personInfoTestJobCoo() {
+        //on teste si je donne le nom de Job Coo, qui n'existe pas donc qui sera null
+        when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
+        PersonInfo y = personInfoService.createPersonInfo("Job","Coo");
+        //assertEquals(null,y.getEmail());
+        assertEquals(null, y);
 
+    }
 }

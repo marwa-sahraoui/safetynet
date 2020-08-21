@@ -32,34 +32,33 @@ public class FirestationService {
 
         JsonDataStructure jsonDataStructure = jsonDataStructureService.getJsonDataStructure();
 
-       // on va regroupé les firestations ayant le même nombre de station
+       // regrouper les firestations ayant le même nombre de station
         for (Firestation f : jsonDataStructure.getFirestations()) {
             if (f.getStation().equals(String.valueOf(stationNumber))) {
                 firestations.add(f);
             }
         }
 
-        //on va collecter les personnes ayant les mêmes adresses que celle présente dans les firestations
-        //on va extraire les noms/prénoms/adresses/téléphones de ces personnes
+        // collecter les personnes ayant les mêmes adressess que celle présente dans les firestations
+        // extraire les noms/prénoms/adresses/téléphones de ces personnes
+        //et faire le compte des personnes enfants et adultes
         for (Firestation firestation : firestations) {
             for (Person p : jsonDataStructure.getPersons()) {
                 if (firestation.getAddress().equals(p.getAddress())) {
-
+                   //constructeur créé dans la classe personne contenant ces 4 attributs spécifiques
                    Person personWithAddressAndPhone = new Person(p.getFirstName(),p.getLastName(),
                            p.getAddress(),p.getPhone());
                     toReturn.getPerson().add(personWithAddressAndPhone);
-                    if (isPersonAdult(jsonDataStructure, p)) {
+                     if (isPersonAdult(jsonDataStructure, p)) {
                         toReturn.setNumberAdult(toReturn.getNumberAdult() + 1);
-                    } else {
+                     } else {
                         toReturn.setNumberChild(toReturn.getNumberChild() + 1);
-                    }
+                     }
                 }
             }
 
         }
-
         return toReturn;
-
     }
 
     /**

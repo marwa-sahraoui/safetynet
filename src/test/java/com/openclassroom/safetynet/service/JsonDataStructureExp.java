@@ -67,6 +67,7 @@ public class JsonDataStructureExp {
         p6.setCity("Lille");
         p6.setZip("9800");
 
+        //Construction de 4 firestations
         Firestation f1 = new Firestation();
         f1.setAddress("14 rue Hoch");
         f1.setStation("1");
@@ -83,7 +84,7 @@ public class JsonDataStructureExp {
         f4.setAddress("10 rue Victor hugo");
         f4.setStation("1");
 
-
+        //Construction de 6 medicalRecords liés aux personnes
         Medicalrecord m1 = new Medicalrecord();
         m1.setFirstName("Carla");
         m1.setLastName("Beans");
@@ -150,7 +151,7 @@ public class JsonDataStructureExp {
         medicalRecordExp.add(m5);
         medicalRecordExp.add(m6);
 
-
+      //jsonDataStructureExp est l'objet json qui sera mocké et utilisé dans les tests
        JsonDataStructure jsonDataStructureExp = new JsonDataStructure();
 
         jsonDataStructureExp.setPersons(personsExp);

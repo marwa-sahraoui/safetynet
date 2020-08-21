@@ -1,9 +1,7 @@
 package com.openclassroom.safetynet.service;
 
-import com.openclassroom.safetynet.model.ChildInfo;
-import com.openclassroom.safetynet.model.Person;
+import com.openclassroom.safetynet.model.ChildInfoAndfamilyMembre;
 import com.openclassroom.safetynet.utils.JsonDataStructure;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,16 +11,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
-import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
+
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 class ChildServiceTest {
-
     @Mock
     JsonDataStructureService jsonDataStructureService;
 
@@ -31,44 +27,27 @@ class ChildServiceTest {
     static JsonDataStructure jsonDataStructureExp;
 
     @BeforeEach
-     void init() {
+    void init() {
         jsonDataStructureExp = JsonDataStructureExp.getJsonData();
-
     }
+
     @Test
-    void childrenPerAddressTestChildIn10RueLiberté() throws IOException {
-        when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
-
-        List<ChildInfo> children = childService.childrenPerAddress("10 rue liberté");
-
-        assertEquals(1,children.size());
-        assertThat(children.get(0).getFirstName()).isEqualTo("Chris");
-
+    //Cette adresse contient un enfant et un autre membre de famille l'enfant s'appelle Rose et l'aute membre s'appelle Carla
+    void getChildInfoAndfamilyMembreInAdress14rueHoch() throws IOException {
+        when(jsonDataStructureService.getJsonDataStructure()).thenReturn( jsonDataStructureExp);
+        ChildInfoAndfamilyMembre childInfoAndfamilyMembre1 = childService.getChildInfoAndfamilyMembre("14 rue Hoch");
+        assertEquals(1,childInfoAndfamilyMembre1.getChildInfo().size());
+        assertEquals(1,childInfoAndfamilyMembre1.getFamily().size());
+        assertEquals("Carla",childInfoAndfamilyMembre1.getFamily().get(0).getFirstName());
+        assertEquals("Rose",childInfoAndfamilyMembre1.getChildInfo().get(0).getFirstName());
     }
+
     @Test
-    void childrenPerAddressTest14RueHoch() throws IOException {
-        when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
-
-        List<ChildInfo> children = childService.childrenPerAddress("14 rue Hoch");
-
-        assertEquals(1,children.size());
+    //Cette adresse ne contient pas d'enfant donc le resultat sera null
+    void getChildInfoAndfamilyMembreInAdress50rueRivoli()  throws IOException {
+        when(jsonDataStructureService.getJsonDataStructure()).thenReturn( jsonDataStructureExp);
+        ChildInfoAndfamilyMembre childInfoAndfamilyMembre2 = childService.getChildInfoAndfamilyMembre("50 rue Rivoli");
+        assertEquals(null,childInfoAndfamilyMembre2);
     }
-    @Test
-    void childrenPerAddressTest01RueVAlbertAnchtein() throws IOException {
-        when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
 
-        List<ChildInfo> children = childService.childrenPerAddress("01RueVAlbertAnchtein");
-
-        assertEquals(0,children.size());
-
-    }
-    @Test
-    void childrenPerAddressTest50RueRivoli() throws IOException {
-        when(jsonDataStructureService.getJsonDataStructure()).thenReturn(jsonDataStructureExp);
-
-        List<ChildInfo> children = childService.childrenPerAddress("50 rue Rivoli");
-
-        assertEquals(0,children.size());
-
-    }
 }
