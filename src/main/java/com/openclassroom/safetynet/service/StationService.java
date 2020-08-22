@@ -84,7 +84,6 @@ public class StationService {
 
                         PersonWithMedicalRecord personWithMedicalRecord = new PersonWithMedicalRecord(person.getFirstName(),
                                 person.getLastName(), person.getPhone(), age, m.getMedications(), m.getAllergies());
-
                         //si l'adresse du foyer correspond à celle de personWithMedicalRecord alors on ajoute cette personne
                         // au même foyer sinon on crée un nouveau foyer et on ajoute les personnes dedans
                         boolean dejaExistant = false;

@@ -6,12 +6,7 @@ import java.util.Objects;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Person {
-
-    public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
+    
     private String firstName;
     private String lastName;
     private String address;
@@ -21,6 +16,11 @@ public class Person {
     private String email;
 
     public Person() {
+    }
+
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
 //Ce constructeur sera utilisé dans la classe firestation service

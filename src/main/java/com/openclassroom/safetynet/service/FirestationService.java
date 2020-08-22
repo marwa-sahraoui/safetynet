@@ -38,7 +38,6 @@ public class FirestationService {
                 firestations.add(f);
             }
         }
-
         // collecter les personnes ayant les mêmes adressess que celle présente dans les firestations
         // extraire les noms/prénoms/adresses/téléphones de ces personnes
         //et faire le compte des personnes enfants et adultes
@@ -56,7 +55,6 @@ public class FirestationService {
                      }
                 }
             }
-
         }
         return toReturn;
     }

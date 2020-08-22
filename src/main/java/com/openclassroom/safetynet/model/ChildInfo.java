@@ -7,13 +7,11 @@ public class ChildInfo {
     private String firstName;
     private String lastName;
     private int age;
-    private List<Person> famille;
 
-    public ChildInfo(String firstName, String lastName, int age, List<Person> famille) {
+    public ChildInfo(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.famille = famille;
     }
 
     public ChildInfo() {
@@ -41,13 +39,5 @@ public class ChildInfo {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public List<Person> getFamille() {
-        return famille;
-    }
-
-    public void setFamille(List<Person> famille) {
-        this.famille = famille;
     }
 }
